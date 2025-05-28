@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class PlayerDTO {
-    private Long playerId; // Optional for POST, useful in PUT/GET
+    private Long playerId; 
 
     @NotBlank(message = "Player name is required")
     private String playerName;
