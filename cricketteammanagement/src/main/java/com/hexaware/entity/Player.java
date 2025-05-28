@@ -20,7 +20,7 @@ public class Player {
     private int jerseyNumber;
 
     @NotBlank
-    private String role; // Batsman, Bowler, etc.
+    private String role; 
 
     @Min(0)
     private int totalMatches;
@@ -40,4 +40,5 @@ public class Player {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 }
