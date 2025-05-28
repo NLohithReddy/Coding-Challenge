@@ -45,6 +45,7 @@ public class PlayerController {
     public Player update(@PathVariable Long id, @Valid @RequestBody Player player) {
         return service.updatePlayer(id, player);
     }
+    
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
