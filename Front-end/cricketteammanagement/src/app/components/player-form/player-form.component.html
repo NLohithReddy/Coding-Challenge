@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-header bg-info text-white">
+    <h4 class="mb-0">{{ isEditMode ? 'Edit' : 'Add' }} Player</h4>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <div class="mb-3">
+        <label for="playerName" class="form-label">Name</label>
+        <input id="playerName" name="playerName" class="form-control" [(ngModel)]="player.playerName" required placeholder="Enter full name" />
+      </div>
+      <div class="mb-3">
+        <label for="jerseyNumber" class="form-label">Jersey Number</label>
+        <input id="jerseyNumber" type="number" class="form-control" name="jerseyNumber" [(ngModel)]="player.jerseyNumber" required placeholder="e.g., 18" />
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <select id="role" name="role" class="form-select" [(ngModel)]="player.role" required>
+          <option value="">--Select Role--</option>
+          <option>Batsman</option>
+          <option>Bowler</option>
+          <option>Keeper</option>
+          <option>All Rounder</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="totalMatches" class="form-label">Total Matches</label>
+        <input id="totalMatches" type="number" class="form-control" name="totalMatches" [(ngModel)]="player.totalMatches" placeholder="Matches played" />
+      </div>
+      <div class="mb-3">
+        <label for="teamName" class="form-label">Team Name</label>
+        <input id="teamName" class="form-control" name="teamName" [(ngModel)]="player.teamName" placeholder="Enter team name" />
+      </div>
+      <div class="mb-3">
+        <label for="countryOrState" class="form-label">Country / State</label>
+        <input id="countryOrState" class="form-control" name="countryOrState" [(ngModel)]="player.countryOrState" placeholder="Enter country or state" />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" class="form-control" name="description" [(ngModel)]="player.description" placeholder="Brief summary about the player"></textarea>
+      </div>
+      <button type="submit" class="btn btn-success">{{ isEditMode ? 'Update' : 'Create' }}</button>
+      <button type="button" class="btn btn-secondary ms-2" routerLink="/">Cancel</button>
+    </form>
+  </div>
+</div>
