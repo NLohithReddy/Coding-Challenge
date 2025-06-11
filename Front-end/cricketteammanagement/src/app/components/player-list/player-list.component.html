@@ -1,0 +1,39 @@
+<div class="card shadow-lg border-0" style="background: linear-gradient(to bottom right, #fdfbfb, #ebedee);">
+  <div class="card-header text-white" style="background: linear-gradient(to right, #fc5c7d, #6a82fb);">
+    <h4 class="mb-0 fw-bold">Player List</h4>
+  </div>
+  <div class="card-body p-4">
+    <table class="table table-hover table-bordered text-center shadow-sm bg-white rounded-3">
+      <thead class="table-light">
+        <tr class="text-dark">
+          <th>ID</th>
+          <th>Name</th>
+          <th>Jersey</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of players">
+          <td>{{ player.playerId }}</td>
+          <td>{{ player.playerName }}</td>
+          <td>{{ player.jerseyNumber }}</td>
+          <td>{{ player.role }}</td>
+          <td>
+            <button class="btn btn-sm text-white fw-semibold px-3 me-2"
+                    style="background: linear-gradient(to right, #00c9ff, #92fe9d);"
+                    [routerLink]="['/edit', player.playerId]">
+              Edit
+            </button>
+            <button class="btn btn-sm text-white fw-semibold px-3"
+                    style="background: linear-gradient(to right, #ff5858, #f857a6);"
+                    (click)="deletePlayer(player.playerId)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="players.length === 0" class="text-muted text-center mt-3">No players available. Add some!</p>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-header bg-info text-white">
+    <h4 class="mb-0">{{ isEditMode ? 'Edit' : 'Add' }} Player</h4>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
+      <div class="mb-3">
+        <label for="playerName" class="form-label">Name</label>
+        <input id="playerName" name="playerName" class="form-control" [(ngModel)]="player.playerName" required placeholder="Enter full name" #playerNameField="ngModel" />
+        <div class="text-danger" *ngIf="playerNameField.invalid && playerNameField.touched">
+          Player name is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="jerseyNumber" class="form-label">Jersey Number</label>
+        <input id="jerseyNumber" type="number" class="form-control" name="jerseyNumber" [(ngModel)]="player.jerseyNumber" required min="0" placeholder="e.g., 18" #jerseyField="ngModel" />
+        <div class="text-danger" *ngIf="jerseyField.invalid && jerseyField.touched">
+          Jersey number must be 0 or higher.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <select id="role" name="role" class="form-select" [(ngModel)]="player.role" required #roleField="ngModel">
+          <option value="">--Select Role--</option>
+          <option>Batsman</option>
+          <option>Bowler</option>
+          <option>Keeper</option>
+          <option>All Rounder</option>
+        </select>
+        <div class="text-danger" *ngIf="roleField.invalid && roleField.touched">
+          Please select a role.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="totalMatches" class="form-label">Total Matches</label>
+        <input id="totalMatches" type="number" class="form-control" name="totalMatches" [(ngModel)]="player.totalMatches" min="0" placeholder="Matches played" #matchesField="ngModel" />
+        <div class="text-danger" *ngIf="matchesField.invalid && matchesField.touched">
+          Total matches must be 0 or more.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="teamName" class="form-label">Team Name</label>
+        <input id="teamName" class="form-control" name="teamName" [(ngModel)]="player.teamName" required placeholder="Enter team name" #teamNameField="ngModel" />
+        <div class="text-danger" *ngIf="teamNameField.invalid && teamNameField.touched">
+          Team name is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="countryOrState" class="form-label">Country / State</label>
+        <input id="countryOrState" class="form-control" name="countryOrState" [(ngModel)]="player.countryOrState" required placeholder="Enter country or state" #countryField="ngModel" />
+        <div class="text-danger" *ngIf="countryField.invalid && countryField.touched">
+          Country or state is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" class="form-control" name="description" [(ngModel)]="player.description" placeholder="Brief summary about the player"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+        {{ isEditMode ? 'Update' : 'Create' }}
+      </button>
+      <button type="button" class="btn btn-secondary ms-2" routerLink="/">Cancel</button>
+    </form>
+  </div>
+</div>

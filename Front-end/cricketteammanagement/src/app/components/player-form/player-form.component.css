@@ -1,0 +1,36 @@
+.card-custom {
+  background: linear-gradient(to right, #f0f4ff, #f7f9fc);
+  border: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-header-gradient {
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  color: white;
+}
+
+.text-primary-label {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.input-border-primary {
+  border-color: #4e54c8;
+}
+
+.btn-gradient {
+  background: linear-gradient(to right, #00b4db, #0083b0);
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-gradient:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-outline-secondary {
+  border: 1px solid #ced4da;
+  color: #495057;
+}
